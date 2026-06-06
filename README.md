@@ -1,0 +1,1 @@
+# hatsimufu.github.io
