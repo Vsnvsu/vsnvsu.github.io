@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Цена Чуда</title>
+    <meta name="description" content="Анонс игры «Цена Чуда» по Mutant: Year Zero в стилистике старой газеты и комикса.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Serif:wght@400;700&family=Yeseva+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #d8cfbf;
+            --paper: rgba(246, 238, 219, 0.96);
+            --paper-strong: rgba(250, 245, 231, 0.98);
+            --ink: #1f1711;
+            --muted: #5d5043;
+            --line: rgba(41, 28, 20, 0.28);
+            --line-strong: rgba(41, 28, 20, 0.5);
+            --accent: #8d2e1f;
+            --accent-soft: #ddcfb3;
+            --accent-dim: #7d7668;
+            --shadow: 0 12px 0 rgba(61, 42, 29, 0.12), 0 20px 40px rgba(33, 23, 17, 0.16);
+            --radius: 2px;
+            --radius-soft: 1px;
+            --width: 780px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "PT Serif", Georgia, serif;
+            color: var(--ink);
+            background: linear-gradient(180deg, #d9d0c0 0%, #cfc3ae 100%);
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 10% 12%, rgba(141, 46, 31, 0.12), transparent 18%),
+                radial-gradient(circle at 86% 18%, rgba(79, 70, 60, 0.12), transparent 22%),
+                radial-gradient(circle at 50% 84%, rgba(141, 46, 31, 0.08), transparent 20%),
+                linear-gradient(180deg, rgba(255, 251, 240, 0.16), rgba(95, 71, 49, 0.08)),
+                radial-gradient(circle, rgba(39, 27, 19, 0.06) 0 1px, transparent 1px 100%);
+            background-size: auto, auto, auto, auto, 9px 9px;
+            opacity: 0.78;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 18% 26%, rgba(36, 24, 18, 0.12) 0 2px, transparent 2px 100%),
+                radial-gradient(circle at 76% 22%, rgba(36, 24, 18, 0.1) 0 1.6px, transparent 1.6px 100%),
+                radial-gradient(circle at 66% 76%, rgba(141, 46, 31, 0.08) 0 2px, transparent 2px 100%),
+                repeating-linear-gradient(0deg, rgba(60, 42, 30, 0.035) 0 1px, transparent 1px 5px);
+            background-size: 22px 22px, 18px 18px, 26px 26px, auto;
+            opacity: 0.32;
+            mix-blend-mode: multiply;
+            z-index: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            width: min(calc(100% - 24px), var(--width));
+            margin: 0 auto;
+            padding: 18px 0 36px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stack {
+            display: grid;
+            gap: 12px;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            background: var(--paper);
+            border: 2px solid rgba(34, 23, 17, 0.46);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 18%, rgba(141, 46, 31, 0.08), transparent 14%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 32%, transparent 70%, rgba(141, 46, 31, 0.05));
+            pointer-events: none;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border: 1px dashed rgba(42, 29, 21, 0.14);
+            border-radius: var(--radius-soft);
+            pointer-events: none;
+        }
+
+        .hero {
+            background: var(--paper-strong);
+        }
+
+        .hero img {
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            filter: saturate(0.72) contrast(1.06) sepia(0.08);
+            border-bottom: 2px solid rgba(34, 23, 17, 0.42);
+        }
+
+        .hero-body,
+        .section {
+            padding: 18px;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .eyebrow {
+            margin: 0;
+            font-family: "PT Sans Narrow", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            line-height: 1.04;
+            font-family: "Yeseva One", serif;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+
+        h1 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            text-shadow: 1px 1px 0 rgba(141, 46, 31, 0.12);
+        }
+
+        h2 {
+            font-size: 1.18rem;
+            margin-bottom: 14px;
+            text-shadow: 1px 1px 0 rgba(141, 46, 31, 0.08);
+        }
+
+        h3 {
+            font-size: 0.88rem;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        p + p {
+            margin-top: 12px;
+        }
+
+        .lead {
+            margin-top: 14px;
+            color: var(--ink);
+            font-size: 1.07rem;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 2px solid rgba(34, 23, 17, 0.38);
+            border-radius: var(--radius-soft);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(141, 46, 31, 0.08)),
+                var(--paper-strong);
+            color: var(--ink);
+            font-family: "PT Sans Narrow", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 5px 5px 0 rgba(61, 42, 29, 0.08);
+            transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+        }
+
+        .hero-link::before {
+            content: "↗";
+            font-size: 1rem;
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .hero-link:hover,
+        .hero-link:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(141, 46, 31, 0.54);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(141, 46, 31, 0.12)),
+                var(--paper-strong);
+            box-shadow: 7px 7px 0 rgba(61, 42, 29, 0.1);
+            outline: none;
+        }
+
+        .pill {
+            padding: 6px 10px;
+            border-radius: var(--radius-soft);
+            border: 1px solid rgba(42, 29, 21, 0.22);
+            background: var(--accent-soft);
+            color: var(--ink);
+            font-family: "PT Sans Narrow", sans-serif;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .player-indicator {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .player-icons {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .player-icon {
+            width: 15px;
+            height: 15px;
+            flex: 0 0 15px;
+        }
+
+        .player-icon.filled {
+            fill: var(--accent);
+            opacity: 0.95;
+        }
+
+        .player-icon.outline {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 1.7;
+            opacity: 0.82;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .story-sections {
+            display: grid;
+            gap: 16px;
+        }
+
+        .story-section + .story-section {
+            padding-top: 14px;
+            border-top: 1px solid rgba(42, 29, 21, 0.14);
+        }
+
+        .story-section p {
+            font-size: 0.98rem;
+        }
+
+        .accent {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .list {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+
+        .list li {
+            line-height: 1.58;
+        }
+
+        .list li + li {
+            margin-top: 8px;
+        }
+
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 12px;
+            align-items: stretch;
+        }
+
+        .feedback-copy {
+            display: flex;
+            align-items: center;
+            min-height: 100%;
+        }
+
+        .feedback-copy p {
+            color: var(--ink);
+            font-size: 1.08rem;
+        }
+
+        .feedback-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 100%;
+            padding: 18px 16px;
+            border: 2px solid rgba(34, 23, 17, 0.34);
+            border-radius: var(--radius-soft);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(141, 46, 31, 0.05)),
+                var(--paper-strong);
+            color: var(--ink);
+            font-family: "PT Sans Narrow", sans-serif;
+            font-size: 0.94rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 6px 6px 0 rgba(61, 42, 29, 0.08);
+            transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+        }
+
+        .feedback-link svg {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 18px;
+            fill: currentColor;
+        }
+
+        .feedback-link:hover,
+        .feedback-link:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(141, 46, 31, 0.58);
+            box-shadow: 8px 8px 0 rgba(61, 42, 29, 0.1);
+            outline: none;
+        }
+
+        @media (max-width: 760px) {
+            body::before {
+                opacity: 0.62;
+            }
+
+            body::after {
+                opacity: 0.2;
+            }
+
+            .page {
+                width: min(calc(100% - 16px), var(--width));
+                padding-top: 12px;
+                padding-bottom: 24px;
+            }
+
+            .hero-body,
+            .section {
+                padding: 14px;
+            }
+
+            .hero-top {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-link {
+                width: 100%;
+            }
+
+            .grid,
+            .feedback-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <main class="page stack">
+        <section class="card hero">
+            <img src="../../../img/announce-myz-chudo.webp" alt="Баннер игры Цена Чуда">
+            <div class="hero-body">
+                <div class="hero-top">
+                    <p class="eyebrow">Mutant: Year Zero · Ваншот · Ледяной постапокалипсис</p>
+                    <a class="hero-link" href="https://drive.google.com/drive/folders/1t2A6sRUhheREyzf0tevL29utO8sANkDl?usp=sharing" target="_blank" rel="noopener noreferrer">Материалы для игры</a>
+                </div>
+                <h1>Цена Чуда</h1>
+                <p class="lead">
+                    Путешествие сквозь мертвые окраины разрушенного мира. Исследование невероятно привычного мира, глазами его наследников, которым он не знаком. Короткая и мрачная история, финал которой можно предсказать своей верой в чудеса.
+                </p>
+                <div class="meta">
+                    <span class="pill">Игра 28.06 - 05.07</span>
+                    <span class="pill">Точную дату согласуем</span>
+                    <span class="player-indicator">
+                        <span class="player-icons" aria-label="Два занятых и два свободных места">
+                            <svg class="player-icon outline" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="8" r="4"></circle>
+                                <path d="M4.5 20c.4-3.6 3.3-6 7.5-6s7.1 2.4 7.5 6Z"></path>
+                            </svg>
+                            <svg class="player-icon outline" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="8" r="4"></circle>
+                                <path d="M4.5 20c.4-3.6 3.3-6 7.5-6s7.1 2.4 7.5 6Z"></path>
+                            </svg>
+                            <svg class="player-icon outline" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="8" r="4"></circle>
+                                <path d="M4.5 20c.4-3.6 3.3-6 7.5-6s7.1 2.4 7.5 6Z"></path>
+                            </svg>
+                            <svg class="player-icon outline" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="8" r="4"></circle>
+                                <path d="M4.5 20c.4-3.6 3.3-6 7.5-6s7.1 2.4 7.5 6Z"></path>
+                            </svg>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid">
+            <section class="card section">
+                <h2>Формат</h2>
+                <ul class="list">
+                    <li>Ваншот-знакомство с системой и миром.</li>
+                    <li>История про надежду, холод и борьбу за жизнь, в окружении уже погибшего мира.</li>
+                    <li>История про жертвы и лишения. Спасение имеет свою цену.</li>
+                </ul>
+            </section>
+
+            <section class="card section">
+                <h2>Для игроков</h2>
+                <ul class="list">
+                    <li>Нулевка и генерация персонажей будут в отдельный день до игры.</li>
+                    <li>Знакомство с миром и системой желательно, но не обязательно.</li>
+                    <li>Всё нужное расскажем, покажем и обсудим перед стартом.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="card section">
+            <h2>О чём игра</h2>
+            <div class="story-sections">
+                <div class="story-section">
+                    <h3>Мир после конца</h3>
+                    <p>
+                        Мир давно кончился. От него остались лишь ржавые бетонные кости древних городов, сухие реки мутной воды, сжирающие заживо очаги гнили и вы - упрямый народ, искаженные гнилью и наукой потомки древних людей. Мутанты.
+                    </p>
+                </div>
+                <div class="story-section">
+                    <h3>Последний изгиб реки</h3>
+                    <p>
+                        Ваш Ковчег - корабль, старый и хрипящий словно больной зверь. Много дней шёл по рекам на юг, спасая вас от Великого Хлада. Ваш путь был долог и до поры успешен, но на очередном изгибе реки он сел на мель. Его механизмы замолчали, а топливо окропило берега, словно кровь из разорванного брюха. Зверь пал. Мороз идёт следом: медленно, неотвратимо. Бегство обратилось ожиданием смерти.
+                    </p>
+                </div>
+                <div class="story-section">
+                    <h3>Слух о чуде</h3>
+                    <p>
+                        Едва надежда умерла вслед за зверем, с разведки возвращается иной из Ковчега. Израненный, с глазами, полными бреда и ужаса. Он едва стоит на ногах и повторяет одно: далеко на востоке есть тот, кто способен творить чудеса.
+                    </p>
+                </div>
+                <div class="story-section">
+                    <h3>Время на исходе</h3>
+                    <p>
+                        Вам неизвестно, правда ли это или предсмертный бред. Старик не верит и остальным не велит. Холод надвигается. В Ковчеге понимают, что любой кто отправится в дорогу лишь приблизит собственную смерть.
+                    </p>
+                    <p>
+                        Веры в чудо нет. Надежду сковывает мороз. Ковчегу осталось слишком мало времени.
+                    </p>
+                </div>
+                <div class="story-section">
+                    <h3>Цена попытки</h3>
+                    <p>
+                        Вы — те, кто решил попытать удачу и отправится за чудом. Может из отчаяния, а может из искреннего желания верить в спасение. Чудо — единственное, что ещё может спасти вас и весь Ковчег.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card section">
+            <div class="feedback-grid">
+                <div class="feedback-copy">
+                    <p>Если интересно - пиши.</p>
+                </div>
+                <a class="feedback-link" href="https://t.me/hatsimufu" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21.5 4.5 18.3 19c-.2 1-.8 1.2-1.6.8l-4.4-3.2-2.1 2c-.2.2-.4.4-.8.4l.3-4.5 8.2-7.4c.4-.3-.1-.5-.6-.2L7 13.5l-4.3-1.3c-.9-.3-.9-.9.2-1.3L20 4.2c.8-.3 1.6.2 1.5 1.3Z"/>
+                    </svg>
+                    <span>ТГ</span>
+                </a>
+                <a class="feedback-link" href="https://discord.com/users/297737020325888011" target="_blank" rel="noopener noreferrer" aria-label="Написать в Discord">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.3 5.4A16.7 16.7 0 0 0 16.2 4l-.2.4-.2.6A15.4 15.4 0 0 0 12 4.6 15.4 15.4 0 0 0 8.2 5l-.2-.6-.2-.4a16.7 16.7 0 0 0-4.1 1.4C1.1 9.3.4 13 .7 16.7a16.9 16.9 0 0 0 5 2.6l1.1-1.8a10.8 10.8 0 0 1-1.7-.8l.4-.3c3.3 1.5 6.9 1.5 10.1 0l.4.3c-.5.3-1.1.6-1.7.8l1.1 1.8a16.9 16.9 0 0 0 5-2.6c.4-4.3-.7-8-2.9-11.3ZM9.6 14.4c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm4.8 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/>
+                    </svg>
+                    <span>Дискорд</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
