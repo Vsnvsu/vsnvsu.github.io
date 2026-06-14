@@ -187,7 +187,7 @@
 <body>
     <main class="page">
         <section class="filters" id="source-filters" hidden>
-            <p class="filters-title">Источники</p>
+            <p class="filters-title">Показать</p>
         </section>
         <section class="grid" id="bonds-list">
             <p class="status">Загрузка даров...</p>
@@ -233,15 +233,21 @@
             return card;
         }
 
-        function getEnabledSources() {
+        function getEnabledGroups() {
             return Array.from(
                 sourceFilters.querySelectorAll('input[type="checkbox"]:checked')
             ).map((input) => input.value);
         }
 
         function renderBonds() {
-            const enabledSources = new Set(getEnabledSources());
-            const visibleBonds = allBonds.filter((bond) => enabledSources.has(bond.source));
+            const enabledGroups = new Set(getEnabledGroups());
+            const visibleBonds = allBonds.filter((bond) => {
+                if (bond.source === "original") {
+                    return enabledGroups.has("old");
+                }
+
+                return enabledGroups.has("new");
+            });
 
             if (!visibleBonds.length) {
                 const status = document.createElement("p");
@@ -260,19 +266,28 @@
                 return acc;
             }, {});
 
-            const sources = Object.keys(counts).sort((left, right) => left.localeCompare(right, "ru"));
-            const controls = sources.map((source) => {
+            const oldCount = counts.original || 0;
+            const newCount = Object.entries(counts).reduce((sum, [source, count]) => {
+                return source === "original" ? sum : sum + count;
+            }, 0);
+
+            const groups = [
+                { value: "old", label: `Старые (${oldCount})` },
+                { value: "new", label: `Новые (${newCount})` },
+            ];
+
+            const controls = groups.map((group) => {
                 const label = document.createElement("label");
                 label.className = "filter-option";
 
                 const input = document.createElement("input");
                 input.type = "checkbox";
-                input.value = source;
+                input.value = group.value;
                 input.checked = true;
                 input.addEventListener("change", renderBonds);
 
                 const text = document.createElement("span");
-                text.textContent = `${source} (${counts[source]})`;
+                text.textContent = group.label;
 
                 label.append(input, text);
                 return label;
