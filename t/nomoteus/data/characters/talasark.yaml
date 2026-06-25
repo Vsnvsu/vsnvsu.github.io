@@ -11,3 +11,7 @@ description: |-
 data:
   aspect: Океан
 relations:
+  - character: vesta
+    name: Партнёр
+    type: asc
+    class: work

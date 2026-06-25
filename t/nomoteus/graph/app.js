@@ -17,20 +17,21 @@ const tagModalTitle = document.getElementById("tag-modal-title");
 const tagModalDescription = document.getElementById("tag-modal-description");
 const tagModalClose = document.getElementById("tag-modal-close");
 
+const appScriptUrl = document.currentScript?.src || location.href;
 const remoteDataRoot = "https://vsnvsu.github.io/t/nomoteus/data/";
 const dataRoot = location.protocol === "file:"
     ? remoteDataRoot
-    : "../data/";
+    : new URL("../data/", appScriptUrl).href;
 const charactersDataBase = `${dataRoot}characters/`;
 const graphsDataBase = `${dataRoot}graphs/`;
 const tagsDataBase = `${dataRoot}tags/`;
 const keysDataBase = `${dataRoot}keys/`;
 const tokensBase = location.protocol === "file:"
     ? "https://vsnvsu.github.io/assets/tokens/"
-    : "../../../assets/tokens/";
+    : new URL("../../../assets/tokens/", appScriptUrl).href;
 const artsBase = location.protocol === "file:"
     ? "https://vsnvsu.github.io/assets/arts/"
-    : "../../../assets/arts/";
+    : new URL("../../../assets/arts/", appScriptUrl).href;
 
 const allowedRelationClasses = new Set([
     "family",
