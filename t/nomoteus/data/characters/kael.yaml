@@ -1,0 +1,34 @@
+name: Каэль Серый
+portrait: humanfaces/3.png
+tags:
+  - grey-house
+  - heir
+  - explorer
+description: >-
+  Молодой наследник, который предпочитает руины дворцовым залам. Недавно
+  вернулся из экспедиции с картой места, которого нет ни в одном архиве.
+data:
+  age: 24
+  occupation: Исследователь руин
+  specialty: Древние карты
+relations:
+  - character: arven
+    name: Отец
+    type: asc
+    class: family
+  - character: elira
+    name: Мать
+    type: asc
+    class: family
+  - character: mira
+    name: Наставница
+    type: asc
+    class: mentorship
+  - character: selena
+    name: Союзница
+    type: desc
+    class: alliance
+  - character: liora
+    name: Спутница
+    type: desc
+    class: alliance

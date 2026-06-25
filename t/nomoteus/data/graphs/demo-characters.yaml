@@ -1,0 +1,10 @@
+name: Демо Персонажи
+description: Полная карта демо персонажей и всех известных связей между ними.
+filters:
+  tags: []
+  match: any
+tag_nodes:
+  - council
+  - guild
+  - port
+  - secret-society

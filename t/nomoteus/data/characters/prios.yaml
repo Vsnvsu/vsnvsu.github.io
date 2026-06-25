@@ -1,0 +1,12 @@
+name: Приос
+portrait: prios.png
+art: prios.png
+tags:
+  - god
+  - house-pelagos
+  - god-pantheon
+description: |-
+  Воплощение ужаса глубин и покровитель малых народов морей и океанов.
+data:
+  aspect: Приливы
+relations:

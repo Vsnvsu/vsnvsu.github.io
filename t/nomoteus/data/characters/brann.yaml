@@ -1,0 +1,26 @@
+name: Бранн Медник
+portrait: humanfaces/12.png
+tags:
+  - guild
+  - undercity
+  - artisan
+description: >-
+  Молодой инженер, ремонтирующий древние механизмы под городом. Часто действует
+  раньше, чем Торвен успевает объяснить, почему устройство лучше не трогать.
+data:
+  age: 21
+  occupation: Подземный инженер
+  specialty: Древние механизмы
+relations:
+  - character: torven
+    name: Наставник
+    type: asc
+    class: mentorship
+  - character: liora
+    name: Союзница
+    type: asc
+    class: alliance
+  - character: rhea
+    name: Заказчица
+    type: desc
+    class: work

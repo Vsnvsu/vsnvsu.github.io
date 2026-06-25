@@ -1,0 +1,25 @@
+name: Лиора Тихая
+portrait: humanfaces/11.png
+tags:
+  - explorer
+  - ruins
+  - intelligence
+description: >-
+  Следопыт экспедиционного корпуса, способная читать следы на голом камне.
+  Уверена, что карта Каэля ведёт не к сокровищу, а к запечатанной угрозе.
+data:
+  occupation: Следопыт
+  allegiance: Экспедиционный корпус
+relations:
+  - character: kael
+    name: Спутник
+    type: asc
+    class: alliance
+  - character: brann
+    name: Союзник
+    type: desc
+    class: alliance
+  - character: isolda
+    name: Противница
+    type: desc
+    class: rivalry

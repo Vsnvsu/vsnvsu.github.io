@@ -1,0 +1,17 @@
+name: Ветераны
+description: Персонажи с тегом «Ветеран» и связи, существующие внутри этой группы.
+filters:
+  tags:
+    - veteran
+  match: any
+tag_nodes:
+  - veteran
+captions:
+  - character: arven
+    text: Командующий старой гвардией
+  - character: torven
+    text: Последний из подземного отряда
+  - character: falk
+    text: Ветеран морских сражений
+node_data:
+  - rank

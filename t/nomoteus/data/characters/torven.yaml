@@ -1,0 +1,28 @@
+name: Торвен Каменный
+portrait: humanfaces/6.png
+tags:
+  - guild
+  - veteran
+  - undercity
+description: >-
+  Мастер проходчиков и последний выживший из отряда Арвена. Контролирует старые
+  тоннели под столицей и знает, какие из них были построены ещё до основания
+  города.
+data:
+  rank: Старший мастер
+  occupation: Мастер проходчиков
+  residence: Нижние тоннели
+  specialty: Древние подземные сооружения
+relations:
+  - character: arven
+    name: Командир
+    type: asc
+    class: work
+  - character: mira
+    name: Кредитор
+    type: asc
+    class: debt
+  - character: brann
+    name: Подмастерье
+    type: desc
+    class: mentorship

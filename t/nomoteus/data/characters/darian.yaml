@@ -1,0 +1,25 @@
+name: Дариан Роу
+portrait: humanfaces/8.png
+tags:
+  - council
+  - law
+  - court
+description: >-
+  Королевский законник, который помнит каждую формулировку старых договоров.
+  За безупречной вежливостью скрывает привычку собирать чужие обязательства.
+data:
+  occupation: Королевский законник
+  specialty: Старые договоры
+relations:
+  - character: arven
+    name: Покровитель
+    type: asc
+    class: work
+  - character: vesta
+    name: Сестра
+    type: desc
+    class: family
+  - character: cassian
+    name: Должник
+    type: desc
+    class: debt

@@ -1,0 +1,31 @@
+name: Элира Серебряная
+portrait: humanfaces/2.png
+tags:
+  - grey-house
+  - diplomat
+  - aristocracy
+description: >-
+  Посланница северных домов, известная умением завершать переговоры до того,
+  как стороны успевают обнажить оружие. Хранит переписку, способную изменить
+  расстановку сил в столице.
+data:
+  occupation: Посланница северных домов
+  residence: Северная цитадель
+  status: При дворе
+relations:
+  - character: arven
+    name: Супруг
+    type: asc
+    class: family
+  - character: kael
+    name: Сын
+    type: desc
+    class: family
+  - character: selena
+    name: Доверенное лицо
+    type: desc
+    class: work
+  - character: isolda
+    name: Соперница
+    type: desc
+    class: rivalry

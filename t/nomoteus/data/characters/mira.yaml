@@ -1,0 +1,33 @@
+name: Мира Безымянная
+portrait: humanfaces/4.png
+tags:
+  - mage
+  - archive
+  - secret-society
+description: >-
+  Хранительница закрытого крыла королевского архива. Её настоящее имя вымарано
+  из документов, а сама она утверждает, что некоторые знания опаснее любой
+  войны.
+data:
+  occupation: Хранительница архива
+  specialty:
+    - Запретные тексты
+    - Магическая криптография
+  status: Имя удалено из реестров
+relations:
+  - character: kael
+    name: Ученик
+    type: desc
+    class: mentorship
+  - character: selena
+    name: Сестра
+    type: desc
+    class: family
+  - character: torven
+    name: Должник
+    type: desc
+    class: debt
+  - character: nemea
+    name: Ученица
+    type: desc
+    class: mentorship

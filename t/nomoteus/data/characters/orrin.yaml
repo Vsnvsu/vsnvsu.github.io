@@ -1,0 +1,27 @@
+name: Оррин Пепельный
+portrait: humanfaces/10.png
+tags:
+  - port
+  - alchemist
+  - guild
+description: >-
+  Алхимик портовой артели, создающий сигнальные смеси и редкие противоядия.
+  Никогда не раскрывает состав препаратов до полной оплаты.
+data:
+  occupation: Алхимик портовой артели
+  specialty:
+    - Противоядия
+    - Сигнальные смеси
+relations:
+  - character: vesta
+    name: Партнёр
+    type: asc
+    class: work
+  - character: nemea
+    name: Наставник
+    type: desc
+    class: mentorship
+  - character: falk
+    name: Должник
+    type: desc
+    class: debt

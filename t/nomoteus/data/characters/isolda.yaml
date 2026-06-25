@@ -1,0 +1,30 @@
+name: Изольда Крей
+portrait: humanfaces/17.png
+tags:
+  - diplomat
+  - secret-society
+  - aristocracy
+description: >-
+  Представительница изгнанного дома Крей. Возвращается ко двору под видом
+  миротворца, одновременно разыскивая документы о падении своей семьи.
+data:
+  occupation: Дипломат
+  allegiance: Дом Крей
+  status: Представительница изгнанного дома
+relations:
+  - character: elira
+    name: Соперница
+    type: asc
+    class: rivalry
+  - character: liora
+    name: Противница
+    type: asc
+    class: rivalry
+  - character: nemea
+    name: Союзница
+    type: asc
+    class: alliance
+  - character: rhea
+    name: Партнёр
+    type: asc
+    class: alliance

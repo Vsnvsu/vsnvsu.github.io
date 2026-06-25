@@ -1,0 +1,25 @@
+name: Немея Соль
+portrait: humanfaces/13.png
+tags:
+  - mage
+  - alchemist
+  - archive
+description: >-
+  Исследовательница памяти минералов. Сопоставляет архивные записи Миры с
+  алхимическими опытами Оррина и всё чаще получает одинаковые предупреждения.
+data:
+  occupation: Исследовательница
+  specialty: Память минералов
+relations:
+  - character: mira
+    name: Наставница
+    type: asc
+    class: mentorship
+  - character: orrin
+    name: Учитель
+    type: asc
+    class: mentorship
+  - character: isolda
+    name: Союзница
+    type: desc
+    class: alliance

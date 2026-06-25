@@ -1,0 +1,26 @@
+name: Веста Роу
+portrait: humanfaces/9.png
+tags:
+  - guild
+  - trade
+  - port
+description: >-
+  Управляющая речными складами и посредница между купцами и контрабандистами.
+  Считает точный учёт лучшей защитой от предательства.
+data:
+  occupation: Управляющая складами
+  residence: Речной порт
+  allegiance: Торговая гильдия
+relations:
+  - character: darian
+    name: Брат
+    type: asc
+    class: family
+  - character: orrin
+    name: Партнёр
+    type: desc
+    class: work
+  - character: rhea
+    name: Конкурентка
+    type: desc
+    class: rivalry

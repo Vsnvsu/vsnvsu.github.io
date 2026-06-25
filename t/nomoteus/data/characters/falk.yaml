@@ -1,0 +1,27 @@
+name: Фальк Одноглазый
+portrait: humanfaces/16.png
+tags:
+  - mercenary
+  - veteran
+  - port
+description: >-
+  Бывший корабельный стрелок, теперь охраняющий караваны и сомнительные сделки.
+  Не любит долги и ещё меньше любит людей, которые о них напоминают.
+data:
+  rank: Старший стрелок
+  occupation: Наёмный охранник
+  status: Действующая служба
+  specialty: Корабельная артиллерия
+relations:
+  - character: torvensuper
+    name: Соперник
+    type: asc
+    class: rivalry
+  - character: orrin
+    name: Кредитор
+    type: asc
+    class: debt
+  - character: cassian
+    name: Союзник
+    type: asc
+    class: alliance

@@ -1,0 +1,26 @@
+name: Рея Мор
+portrait: humanfaces/15.png
+tags:
+  - trade
+  - aristocracy
+  - court
+description: >-
+  Наследница торгового дома Мор, скупившая мастерские западного квартала.
+  Публично поддерживает совет, но готовит собственную коалицию.
+data:
+  occupation: Глава торгового дома
+  allegiance: Дом Мор
+  residence: Западный квартал
+relations:
+  - character: vesta
+    name: Конкурентка
+    type: asc
+    class: rivalry
+  - character: brann
+    name: Исполнитель
+    type: asc
+    class: work
+  - character: isolda
+    name: Партнёр
+    type: desc
+    class: alliance

@@ -1,0 +1,30 @@
+name: Селена Вейр
+portrait: humanfaces/5.png
+tags:
+  - intelligence
+  - secret-society
+  - court
+description: >-
+  Придворная переводчица и неофициальный связной нескольких разведывательных
+  сетей. Всегда знает, кто прибыл в город, но редко объясняет, откуда.
+data:
+  occupation: Придворная переводчица
+  allegiance: Тайное общество
+  specialty: Разведывательные сети
+relations:
+  - character: mira
+    name: Сестра
+    type: asc
+    class: family
+  - character: elira
+    name: Покровительница
+    type: asc
+    class: work
+  - character: kael
+    name: Союзник
+    type: asc
+    class: alliance
+  - character: cassian
+    name: Информатор
+    type: desc
+    class: work

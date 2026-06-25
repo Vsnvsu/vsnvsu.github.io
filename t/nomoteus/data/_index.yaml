@@ -1,0 +1,56 @@
+characters:
+  - arven
+  - elira
+  - kael
+  - mira
+  - selena
+  - torven
+  - torvensuper
+  - darian
+  - vesta
+  - orrin
+  - liora
+  - brann
+  - nemea
+  - cassian
+  - rhea
+  - falk
+  - isolda
+
+tags:
+  - alchemist
+  - aristocracy
+  - archive
+  - artisan
+  - council
+  - court
+  - diplomat
+  - explorer
+  - grey-house
+  - guild
+  - heir
+  - intelligence
+  - law
+  - mage
+  - mercenary
+  - port
+  - ruins
+  - secret-society
+  - smuggling
+  - trade
+  - undercity
+  - veteran
+
+keys:
+  - rank
+  - age
+  - occupation
+  - residence
+  - allegiance
+  - status
+  - specialty
+
+graphs:
+  - all-characters
+  - veterans
+  - public-relations

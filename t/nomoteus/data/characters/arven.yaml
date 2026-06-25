@@ -1,0 +1,34 @@
+name: Арвен Серый
+portrait: humanfaces/1.png
+tags:
+  - grey-house
+  - council
+  - veteran
+description: >-
+  Глава дома Серых и бывший полевой командир. После войны старается удержать
+  хрупкое равновесие между старой знатью и новым городским советом.
+data:
+  rank: Генерал
+  age: 58
+  occupation: Глава дома Серых
+  residence: Северная цитадель
+  allegiance:
+    - Дом Серых
+    - Городской совет
+relations:
+  - character: kael
+    name: Сын
+    type: desc
+    class: family
+  - character: elira
+    name: Супруга
+    type: desc
+    class: family
+  - character: torven
+    name: Соратник
+    type: desc
+    class: work
+  - character: darian
+    name: Советник
+    type: desc
+    class: work

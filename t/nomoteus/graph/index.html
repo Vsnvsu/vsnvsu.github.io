@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Интерактивная карта персонажей и их связей.">
+    <title>Картотека персонажей</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app">
+        <p class="visually-hidden" id="counter">Загрузка архива…</p>
+
+        <section class="workspace">
+            <div class="graph-panel">
+                <div class="toolbar" aria-label="Управление графом">
+                    <div class="view-filter">
+                        <select class="visually-hidden" id="graph-mode" tabindex="-1" aria-hidden="true">
+                            <option value="">Загрузка режимов…</option>
+                        </select>
+                        <button class="view-filter-button" id="graph-mode-button" type="button"
+                                aria-haspopup="listbox" aria-expanded="false">
+                            <span class="view-filter-label" id="graph-mode-label">Загрузка режимов…</span>
+                            <svg aria-hidden="true" viewBox="0 0 16 16">
+                                <path d="m4 6 4 4 4-4"></path>
+                            </svg>
+                        </button>
+                        <div class="view-filter-menu" id="graph-mode-menu" role="listbox"
+                             aria-label="Режим просмотра" hidden></div>
+                    </div>
+                    <label class="search">
+                        <span class="visually-hidden">Поиск персонажа</span>
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="6"></circle>
+                            <path d="m16 16 4 4"></path>
+                        </svg>
+                        <input id="search" type="search" placeholder="Имя, тег или описание">
+                    </label>
+                    <div class="zoom-controls">
+                        <button type="button" id="zoom-out" title="Отдалить" aria-label="Отдалить">−</button>
+                        <button type="button" id="zoom-reset" title="Показать весь граф" aria-label="Показать весь граф">⌂</button>
+                        <button type="button" id="zoom-in" title="Приблизить" aria-label="Приблизить">+</button>
+                    </div>
+                </div>
+                <p class="view-description" id="graph-mode-description"></p>
+
+                <div class="graph-stage" id="graph-stage">
+                    <svg id="graph" role="img" aria-label="Граф связей персонажей"></svg>
+                    <div class="graph-hint">Тяните узлы · колесо меняет масштаб · фон перемещает карту</div>
+                    <div class="status" id="status">Загрузка персонажей…</div>
+                </div>
+            </div>
+
+            <aside class="dossier" id="dossier">
+                <div class="dossier-empty">
+                    <span class="empty-mark">N</span>
+                    <h2>Выберите персонажа</h2>
+                    <p>Нажмите на узел, чтобы открыть карточку, описание и список его связей.</p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <dialog class="portrait-modal" id="portrait-modal" aria-label="Просмотр портрета">
+        <button class="portrait-modal-close" id="portrait-modal-close" type="button" aria-label="Закрыть">×</button>
+        <img id="portrait-modal-image" src="" alt="">
+    </dialog>
+
+    <dialog class="tag-modal" id="tag-modal" aria-labelledby="tag-modal-title">
+        <button class="portrait-modal-close" id="tag-modal-close" type="button" aria-label="Закрыть">×</button>
+        <div class="tag-modal-mark">#</div>
+        <h2 id="tag-modal-title"></h2>
+        <p id="tag-modal-description"></p>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

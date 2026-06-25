@@ -1,0 +1,18 @@
+name: Супер Торвен
+portrait: humanfaces/7.png
+tags:
+  - guild
+  - veteran
+  - undercity
+description: >-
+  Мастер проходчиков и последний выживший из отряда Арвена. Контролирует старые
+  тоннели под столицей и знает, какие из них были построены ещё до основания
+  города.
+data:
+  rank: Почётный ветеран
+  status: В отставке
+relations:
+  - character: falk
+    name: Соперник
+    type: desc
+    class: rivalry

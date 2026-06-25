@@ -1,0 +1,13 @@
+name: Все без личных связей
+description: Общая карта без семейных отношений и долговых обязательств.
+filters:
+  tags: []
+  match: any
+tag_nodes:
+  - court
+  - intelligence
+  - trade
+relations:
+  exclude_classes:
+    - family
+    - debt

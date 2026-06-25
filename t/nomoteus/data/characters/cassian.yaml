@@ -1,0 +1,26 @@
+name: Кассиан Ворн
+portrait: humanfaces/14.png
+tags:
+  - intelligence
+  - port
+  - smuggling
+description: >-
+  Капитан малой шхуны, доставляющий письма быстрее официальной почты. Его
+  сведения полезны Селене, но цена каждой услуги продолжает расти.
+data:
+  occupation: Капитан шхуны
+  residence: Речной порт
+  status: Разыскивается портовой стражей
+relations:
+  - character: selena
+    name: Связная
+    type: asc
+    class: work
+  - character: darian
+    name: Кредитор
+    type: asc
+    class: debt
+  - character: falk
+    name: Союзник
+    type: desc
+    class: alliance
